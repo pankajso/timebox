@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'TimeBox App',
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -39,32 +39,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[
-          Text(
-            "Today",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          Row(
-            children: <Widget>[
-              MaterialButton(
-                color: Theme.of(context).accentColor,
-                textColor: Colors.white,
-                padding: const EdgeInsets.all(14),
-                onPressed: () {},
-                child: Text('Tasks'),
-                ),
-                
-            ],
-          ),
-        ],
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "Tasks",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            _topbutton(context),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
+        shape: CircleBorder( side: BorderSide(color: Colors.black), ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -78,5 +71,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  Row _topbutton(BuildContext context) {
+    return Row(
+          children: <Widget>[
+            MaterialButton(
+              color: Theme.of(context).accentColor,
+              textColor: Colors.white,
+              padding: const EdgeInsets.all(14),
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.circular(14.0)),
+              child: Text('Add Task'),
+              ),
+          ],
+        );
   }
 }
